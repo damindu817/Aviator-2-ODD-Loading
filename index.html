@@ -6,7 +6,7 @@
   <title>Aviator Predictor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Loading Screen Styles (Original) */
+    /* Loading Screen Styles (EXACTLY AS IN YOUR ORIGINAL) */
     html, body {
       margin: 0;
       padding: 0;
@@ -65,7 +65,7 @@
       to { stroke-dashoffset: 0; }
     }
 
-    /* Tips Page Styles (Original) */
+    /* Tips Page Styles (EXACTLY AS IN YOUR ORIGINAL TIPS PAGE) */
     .tips-container {
       width: 95%;
       max-width: 450px;
@@ -173,7 +173,7 @@
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
+  <!-- Loading Screen (EXACTLY AS IN YOUR ORIGINAL) -->
   <div class="loader-container">
     <svg class="progress-ring" width="150" height="150">
       <circle class="progress-bg" cx="75" cy="75" r="70"/>
@@ -182,7 +182,7 @@
     <div class="loader-icon"><i class="fas fa-paper-plane"></i></div>
   </div>
 
-  <!-- Tips Page -->
+  <!-- Tips Page (EXACT CONTENT FROM YOUR ORIGINAL TIPS PAGE) -->
   <div class="tips-container" id="tipsPage">
     <h1>Aviator Game උපදෙස්</h1>
     <div class="tips-scroll" id="tipsContent">
@@ -247,37 +247,21 @@
         if (!isFullyScrolled) {
           e.preventDefault();
         } else {
-          // Use location.replace to prevent back navigation
-          const targetUrl = "https://damindu817.github.io/AVIATOR-2---3-ODD---1XBET/";
-          const returnUrl = "https://damindu817.github.io/AVIATOR-2---3-ODD---1XBET/";
+          // Open in new tab to prevent any back navigation issues
+          window.open("https://damindu817.github.io/AVIATOR-2---3-ODD---1XBET/", "_blank");
           
-          // Store return URL in session storage
-          sessionStorage.setItem('returnUrl', returnUrl);
-          
-          // Redirect to target URL
-          window.location.replace(targetUrl);
+          // Focus back to original page (optional)
+          window.focus();
         }
       });
 
       // Force scroll to top on page load
       window.scrollTo(0, 0);
       
-      // Check if coming back from external link
-      if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-        const returnUrl = sessionStorage.getItem('returnUrl');
-        if (returnUrl) {
-          window.location.replace(returnUrl);
-        }
-      }
-
       // Lock history to prevent back navigation
       history.pushState(null, null, document.URL);
       window.addEventListener('popstate', () => {
         history.pushState(null, null, document.URL);
-        const returnUrl = sessionStorage.getItem('returnUrl');
-        if (returnUrl) {
-          window.location.replace(returnUrl);
-        }
       });
     }
   </script>
